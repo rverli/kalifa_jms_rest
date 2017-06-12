@@ -1,13 +1,23 @@
 package com.kalifa.kalifa_jms_rest.dto;
 
 public class User {
-	 
+	
+	private int id;
 	private String name;
 	private int age;
 	 
-	public User(String name, int age) {
+	public User(int id, String name, int age) {
+		this.id = id;
 		this.name = name;
 		this.age = age;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	public String getName() {
@@ -24,5 +34,27 @@ public class User {
 
 	public void setAge(int age) {
 		this.age = age;
-	} 
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + id;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		User other = (User) obj;
+		if (id != other.id)
+			return false;
+		return true;
+	}
 }
